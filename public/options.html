@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>FullPaged settings</title>
+<style>
+  :root { --blue: #2160e4; --ink: #1b2333; --muted: #66707f; }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink); background: #f4f6fa; padding: 40px 16px;
+  }
+  main { max-width: 560px; margin: 0 auto; background: #fff; border-radius: 16px;
+    padding: 28px 32px; box-shadow: 0 1px 3px rgba(16,24,40,.08); }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+  header img { width: 36px; height: 36px; border-radius: 9px; }
+  h1 { font-size: 18px; letter-spacing: -0.2px; }
+  .row { margin-bottom: 20px; }
+  label { display: block; font-weight: 600; margin-bottom: 6px; }
+  .hint { font-size: 12px; color: var(--muted); margin-top: 5px; }
+  select, input[type=text], input[type=number] {
+    width: 100%; padding: 9px 10px; border: 1px solid #d4dae4; border-radius: 8px;
+    font: inherit; background: #fff;
+  }
+  input[type=range] { width: calc(100% - 56px); vertical-align: middle; accent-color: var(--blue); }
+  #qualityValue { display: inline-block; width: 44px; text-align: right; color: var(--muted); }
+  #filenamePreview { font-family: ui-monospace, monospace; font-size: 12px; color: var(--blue); }
+  #saved { font-size: 12px; color: #0a7a43; visibility: hidden; }
+  .quality-row.disabled { opacity: .45; pointer-events: none; }
+</style>
+</head>
+<body>
+<main>
+  <header><img src="icons/icon48.png" alt="" /><h1>FullPaged settings</h1></header>
+
+  <div class="row">
+    <label for="format">Default format</label>
+    <select id="format">
+      <option value="png">PNG (lossless)</option>
+      <option value="jpeg">JPEG (smaller files)</option>
+      <option value="pdf">PDF</option>
+    </select>
+  </div>
+
+  <div class="row quality-row" id="qualityRow">
+    <label for="quality">JPEG quality</label>
+    <input type="range" id="quality" min="50" max="100" step="1" />
+    <span id="qualityValue"></span>
+  </div>
+
+  <div class="row">
+    <label for="template">File name template</label>
+    <input type="text" id="template" spellcheck="false" />
+    <p class="hint">Placeholders: <code>{domain}</code> <code>{title}</code> <code>{date}</code> <code>{time}</code>
+      &nbsp;→&nbsp; <span id="filenamePreview"></span></p>
+  </div>
+
+  <div class="row">
+    <label for="delay">Extra delay before each shot (ms)</label>
+    <input type="number" id="delay" min="0" max="5000" step="50" />
+    <p class="hint">Give slow, animation-heavy pages time to settle. 0 works for most pages.</p>
+  </div>
+
+  <p id="saved">Saved ✓</p>
+</main>
+<script src="options.js"></script>
+</body>
+</html>
