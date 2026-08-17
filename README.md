@@ -19,7 +19,7 @@
 
 ## Install
 
-**Chrome Web Store**: search for "FullPaged" (see [store/SUBMISSION_GUIDE.md](store/SUBMISSION_GUIDE.md) while the listing is pending).
+**Chrome Web Store**: search for "FullPaged" (listing is pending).
 
 **Unpacked (developer mode):**
 
