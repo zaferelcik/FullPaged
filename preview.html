@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>FullPaged — preview</title>
+<style>
+  :root { --blue: #2160e4; --blue-dark: #1a4fc4; --ink: #1b2333; --muted: #66707f; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink); background: #eceff5; min-height: 100vh; }
+  .topbar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px; background: #fff; box-shadow: 0 1px 3px rgba(16,24,40,.1); flex-wrap: wrap; }
+  .topbar img { width: 26px; height: 26px; border-radius: 6px; }
+  .topbar .title { font-weight: 700; margin-right: 6px; }
+  .topbar .dims { color: var(--muted); font-size: 12px; margin-right: auto; }
+  button { border: 0; border-radius: 8px; padding: 8px 14px; font: inherit; font-weight: 600;
+    cursor: pointer; background: #eef2f9; color: var(--ink); }
+  button:hover { background: #e2e8f2; }
+  button.primary { background: var(--blue); color: #fff; }
+  button.primary:hover { background: var(--blue-dark); }
+  button:disabled { opacity: .5; cursor: default; }
+  #msg { width: 100%; font-size: 12px; color: var(--muted); min-height: 16px; }
+  #msg.error { color: #b3261e; }
+  #stage { display: flex; justify-content: center; padding: 24px 16px; }
+  #imageWrap { position: relative; line-height: 0; box-shadow: 0 2px 12px rgba(16,24,40,.18);
+    max-width: 100%; }
+  #imageWrap img, #imageWrap canvas { display: block; max-width: 100%; width: 100%; }
+  #cropOverlay { position: absolute; inset: 0; cursor: crosshair; display: none;
+    background: rgba(15,23,42,.25); }
+  #cropRect { position: absolute; border: 2px dashed #fff; outline: 1px solid rgba(0,0,0,.6);
+    background: rgba(255,255,255,.15); display: none; pointer-events: none; }
+  .croptip { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    background: #111827; color: #fff; padding: 8px 14px; border-radius: 99px; font-size: 12px;
+    display: none; z-index: 6; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <img src="icons/icon32.png" alt="" />
+    <span class="title">FullPaged</span>
+    <span class="dims" id="dims"></span>
+    <button id="download" class="primary">Download</button>
+    <button id="downloadJpeg">JPEG</button>
+    <button id="downloadPdf">PDF</button>
+    <button id="copy">Copy</button>
+    <button id="crop">Crop</button>
+    <button id="saveAs">Save As…</button>
+    <span id="msg"></span>
+  </div>
+  <div id="stage">
+    <div id="imageWrap">
+      <div id="cropOverlay"><div id="cropRect"></div></div>
+    </div>
+  </div>
+  <div class="croptip" id="croptip">Drag to select — release to crop, Esc to cancel</div>
+  <script src="preview.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- FullPaged icon — flat blue rounded square with white F + down arrow,
+       continuing the Markdowned/Timestamped family style. Original artwork. -->
+  <rect x="0" y="0" width="128" height="128" rx="26" fill="#2160E4"/>
+  <!-- F -->
+  <path fill="#FFFFFF" d="M30 32 h40 v14 h-26 v12 h22 v13 h-22 v25 h-14 z"/>
+  <!-- down arrow -->
+  <path fill="#FFFFFF" d="M85 36 h13 v30 h10 l-16.5 22 -16.5 -22 h10 z"/>
+</svg>
